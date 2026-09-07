@@ -1,0 +1,40 @@
+import type { PatientStory } from '../../../types/common';
+
+export const PATIENT_STORIES: PatientStory[] = [
+  {
+    id: 'story-1',
+    patientName: 'Vikram & Sunita Malhotra',
+    age: 54,
+    location: 'Hyderabad, India',
+    treatment: 'Robotic Cardiac Angioplasty & Valve Repair',
+    department: 'Cardiology',
+    quote: 'From the minute emergency dispatch answered to my post-op discharge, every step felt human, calm, and deeply reassuring.',
+    storySnippet: 'When Vikram suffered acute chest discomfort during a morning walk, Aurelia Nova’s mobile telemetry ambulance dispatched within 6 minutes. Dr. Mehra’s team completed robotic angioplasty with zero complications.',
+    recoveringTime: 'Discharged in 48 Hours',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    id: 'story-2',
+    patientName: 'Priya Nambiar',
+    age: 38,
+    location: 'Bengaluru, India',
+    treatment: 'Micro-Endoscopic Spine Resection',
+    department: 'Neurology & Neurosurgery',
+    quote: 'I had been told major open surgery was my only option. Dr. Maya Rao’s keyhole approach had me walking pain-free the next morning.',
+    storySnippet: 'After suffering severe lumbar nerve compression for two years, Priya underwent 3D intraoperative MRI-guided keyhole surgery. She returned to active tennis within six weeks.',
+    recoveringTime: 'Full Mobility in 14 Days',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    id: 'story-3',
+    patientName: 'Col. Rajeshwardas K.',
+    age: 67,
+    location: 'New Delhi, India',
+    treatment: 'Bilateral Robotic Total Knee Replacement',
+    department: 'Orthopaedics',
+    quote: 'The sub-millimeter robotic precision is mind-blowing. I experienced half the swelling compared to my friend’s conventional surgery.',
+    storySnippet: 'Unable to walk without severe arthritis pain, Col. Rajeshwardas underwent dual robotic joint replacements with Dr. Kabir Anand. He completed a 3 km walk on day 20.',
+    recoveringTime: 'Active Walking in 3 Weeks',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
+  },
+];

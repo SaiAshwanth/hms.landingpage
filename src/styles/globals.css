@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+    
+    /* Enhanced Light-First Medical Palette (Vibrant & Warm) */
+    --color-clinical-white: #FAFBF8;
+    --color-soft-ivory: #F7F5EE;
+    --color-warm-stone: #E5E3D8;
+    --color-graphite: #1E2421;
+    --color-deep-forest: #0D2E24;
+    --color-aurelia-green: #059669;
+    --color-soft-sage: #A7F3D0;
+    --color-medical-aqua: #0284C7;
+    --color-vibrant-teal: #0D9488;
+    --color-cardiac-rose: #E11D48;
+    --color-coral-pulse: #F43F5E;
+    --color-amber-gold: #D97706;
+    --color-royal-indigo: #4F46E5;
+    --color-sky-cyan: #06B6D4;
+    --color-muted-champagne: #D97706;
+
+    /* Dark World Palette */
+    --color-dark-obsidian: #0D110E;
+    --color-dark-graphite: #151A17;
+
+    --bg-light: #FAFBF8;
+    --bg-dark: #0D110E;
+
+    /* Responsive Typography Scale Variables */
+    --font-size-hero: clamp(52px, 6vw, 96px);
+    --font-size-h1: clamp(36px, 4vw, 64px);
+    --font-size-h2: clamp(24px, 2.8vw, 40px);
+    --font-size-h3: clamp(20px, 2vw, 28px);
+    --font-size-body: clamp(15px, 1.1vw, 18px);
+    --font-size-small: clamp(11px, 0.9vw, 13px);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-light);
+    color: var(--color-graphite);
+    overflow-x: hidden;
+    letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, .font-hero-title {
+    font-size: var(--font-size-hero);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
+  h2, .font-section-title {
+    font-size: var(--font-size-h1);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+
+  h3, .font-card-title {
+    font-size: var(--font-size-h2);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .font-body-editorial {
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+  }
+
+  .font-meta-label {
+    font-size: var(--font-size-small);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+}
+
+/* Custom Color Utilities */
+.bg-clinical { background-color: #FAFBF8; }
+.text-clinical { color: #FAFBF8; }
+
+.bg-soft-ivory { background-color: #F7F5EE; }
+.text-soft-ivory { color: #F7F5EE; }
+
+.bg-warm-stone { background-color: #E5E3D8; }
+.text-warm-stone { color: #E5E3D8; }
+
+.bg-graphite { background-color: #1E2421; }
+.text-graphite { color: #1E2421; }
+
+.bg-deep-forest { background-color: #0D2E24; }
+.text-deep-forest { color: #0D2E24; }
+
+.bg-aurelia-green { background-color: #059669; }
+.text-aurelia-green { color: #059669; }
+
+.bg-soft-sage { background-color: #ECFDF5; }
+.text-soft-sage { color: #059669; }
+
+.bg-medical-aqua { background-color: #0284C7; }
+.text-medical-aqua { color: #0284C7; }
+
+.bg-vibrant-teal { background-color: #0D9488; }
+.text-vibrant-teal { color: #0D9488; }
+
+.bg-cardiac-rose { background-color: #E11D48; }
+.text-cardiac-rose { color: #E11D48; }
+
+.bg-coral-pulse { background-color: #F43F5E; }
+.text-coral-pulse { color: #F43F5E; }
+
+.bg-amber-gold { background-color: #D97706; }
+.text-amber-gold { color: #D97706; }
+
+.bg-royal-indigo { background-color: #4F46E5; }
+.text-royal-indigo { color: #4F46E5; }
+
+.bg-sky-cyan { background-color: #06B6D4; }
+.text-sky-cyan { color: #06B6D4; }
+
+.bg-muted-champagne { background-color: #FEF3C7; }
+.text-muted-champagne { color: #D97706; }
+
+.bg-dark-obsidian { background-color: #0D110E; }
+.text-dark-obsidian { color: #0D110E; }
+
+.bg-dark-graphite { background-color: #151A17; }
+.text-dark-graphite { color: #151A17; }
+
+/* Vibrant Gradient Background Utilities */
+.bg-gradient-hero {
+  background: linear-gradient(135deg, #FAFBF8 0%, #F0FDFA 35%, #FFF1F2 70%, #FAFBF8 100%);
+}
+
+.bg-gradient-medical {
+  background: linear-gradient(135deg, #0D9488 0%, #0284C7 100%);
+}
+
+.bg-gradient-teal-emerald {
+  background: linear-gradient(135deg, #F0FDFA 0%, #ECFDF5 100%);
+}
+
+.bg-gradient-rose-gold {
+  background: linear-gradient(135deg, #FFF1F2 0%, #FEF3C7 100%);
+}
+
+.bg-gradient-cyan-sky {
+  background: linear-gradient(135deg, #E0F2FE 0%, #ECFDF5 100%);
+}
+
+.bg-gradient-indigo-rose {
+  background: linear-gradient(135deg, #EEF2FF 0%, #FFF1F2 100%);
+}
+
+/* Thin Architectural Line Borders */
+.border-arch-light {
+  border-color: rgba(13, 148, 136, 0.18);
+}
+
+.border-arch-dark {
+  border-color: rgba(250, 251, 248, 0.12);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFBF8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0D9488;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Hide scrollbar for clean horizontal rooms */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
