@@ -19,7 +19,7 @@ export const HeroSection: React.FC = () => {
   const [bpm, setBpm] = useState(72);
   useEffect(() => {
     const interval = setInterval(() => {
-      setBpm(prev => 70 + Math.floor(Math.random() * 5));
+      setBpm(() => 70 + Math.floor(Math.random() * 5));
     }, 2000);
     return () => clearInterval(interval);
   }, []);
