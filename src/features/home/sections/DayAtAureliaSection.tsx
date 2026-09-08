@@ -42,32 +42,34 @@ export const DayAtAureliaSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Time Selector Column */}
-          <div className="lg:col-span-5 space-y-2">
-            {DAY_TIMELINE.map((item, idx) => {
-              const isSelected = idx === activeStep;
-              return (
-                <button
-                  key={item.time}
-                  onClick={() => setActiveStep(idx)}
-                  className={`w-full text-left p-5 transition-all duration-300 cursor-pointer border-b border-[#1B201D]/10 flex items-center justify-between rounded-lg ${
-                    isSelected
-                      ? 'bg-slate-900 text-white pl-6 shadow-lg'
-                      : 'text-[#1B201D]/70 hover:bg-slate-200/60'
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-xl font-bold font-mono text-teal-500">
-                      {item.time}
-                    </span>
-                    <div>
-                      <div className="text-sm font-bold uppercase">{item.title}</div>
-                      <div className="text-[10px] font-mono opacity-60">{item.subtitle}</div>
+          <div className="lg:col-span-5">
+            <div className="flex lg:flex-col gap-2.5 overflow-x-auto lg:overflow-visible pb-3 lg:pb-0 scrollbar-none snap-x snap-mandatory">
+              {DAY_TIMELINE.map((item, idx) => {
+                const isSelected = idx === activeStep;
+                return (
+                  <button
+                    key={item.time}
+                    onClick={() => setActiveStep(idx)}
+                    className={`flex-shrink-0 min-w-[140px] lg:w-full text-left p-3.5 lg:p-5 transition-all duration-300 cursor-pointer border lg:border-b lg:border-t-0 lg:border-x-0 border-slate-200/80 rounded-xl lg:rounded-lg flex items-center justify-between snap-start ${
+                      isSelected
+                        ? 'bg-slate-900 text-white border-slate-900 shadow-lg'
+                        : 'bg-white/80 lg:bg-transparent text-[#1B201D]/70 hover:bg-slate-200/60'
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 lg:gap-4">
+                      <span className="text-base lg:text-xl font-bold font-mono text-teal-500">
+                        {item.time}
+                      </span>
+                      <div>
+                        <div className="text-xs lg:text-sm font-bold uppercase leading-tight">{item.title}</div>
+                        <div className="text-[9px] lg:text-[10px] font-mono opacity-60 leading-tight mt-0.5">{item.subtitle}</div>
+                      </div>
                     </div>
-                  </div>
-                  {isSelected && <span className="w-2.5 h-2.5 rounded-full bg-teal-400 animate-pulse" />}
-                </button>
-              );
-            })}
+                    {isSelected && <span className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-teal-400 animate-pulse shrink-0 ml-2" />}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Dynamic Environmental Lighting Display Box */}

@@ -42,7 +42,13 @@ export const HeroSection: React.FC = () => {
 
       {/* FLOATING TELEMETRY & BACKGROUND WATERMARKS (Right & Center Background) */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
+        {/* Mobile Top Subtle Telemetry Pill */}
+        <div className="lg:hidden absolute top-20 right-4 flex items-center gap-2 text-[9px] font-mono tracking-[0.15em] text-slate-500 uppercase bg-white/70 backdrop-blur-sm px-2.5 py-1 rounded-full border border-slate-200/60">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+          <span>PRECISION • CARE</span>
+        </div>
+
         {/* Top Center Telemetry Label */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
@@ -87,12 +93,12 @@ export const HeroSection: React.FC = () => {
           <span>INSPIRING TOMORROWS</span>
         </div>
 
-        {/* Live Vitals Diagnostic Telemetry Box (Bottom Right) */}
+        {/* Live Vitals Diagnostic Telemetry Box (Desktop Bottom Right) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="absolute bottom-28 right-12 hidden md:block bg-white/75 backdrop-blur-md border border-slate-200/80 p-3.5 rounded-sm shadow-xs text-[11px] font-mono text-slate-600 min-w-[170px]"
+          className="absolute bottom-28 right-12 hidden lg:block bg-white/75 backdrop-blur-md border border-slate-200/80 p-3.5 rounded-sm shadow-xs text-[11px] font-mono text-slate-600 min-w-[170px]"
         >
           <div className="flex justify-between items-center py-0.5 border-b border-slate-100">
             <span className="text-slate-400 uppercase">HR</span>
@@ -121,7 +127,7 @@ export const HeroSection: React.FC = () => {
         </motion.div>
 
         {/* Bottom Right Corner Watermark */}
-        <div className="absolute bottom-10 right-12 hidden md:block text-right text-[10px] font-mono tracking-[0.2em] text-slate-400 uppercase font-light">
+        <div className="absolute bottom-10 right-12 hidden lg:block text-right text-[10px] font-mono tracking-[0.2em] text-slate-400 uppercase font-light">
           A BRIGHTER, HEALTHIER YOU
         </div>
       </div>
@@ -129,7 +135,7 @@ export const HeroSection: React.FC = () => {
       {/* MAIN CONTAINER (Left Editorial Column) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto pt-4 pb-12">
         <motion.div style={{ y: textYProgress }} className="max-w-2xl space-y-6">
-          
+
           {/* Eyebrow Label with Dash Accent */}
           <motion.div
             initial={{ opacity: 0, x: -15 }}
@@ -204,6 +210,51 @@ export const HeroSection: React.FC = () => {
               <span>EXPLORE AURELIA</span>
               <ArrowRight className="w-3.5 h-3.5 text-slate-600 transition-transform group-hover:translate-x-1" />
             </a>
+          </motion.div>
+
+          {/* Mobile/Tablet Live Vitals Diagnostic Telemetry Box */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55 }}
+            className="lg:hidden bg-white/90 backdrop-blur-md border border-slate-200/90 p-3.5 rounded-xl shadow-sm text-[11px] font-mono text-slate-700 max-w-md"
+          >
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 text-[10px] text-slate-500 uppercase tracking-wider font-semibold">
+              <span className="flex items-center gap-2 text-teal-800">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500" />
+                </span>
+                <span>PATIENT VITALS TELEMETRY</span>
+              </span>
+              <span className="text-[9px] text-slate-400">AURELIA NOVA</span>
+            </div>
+            <div className="grid grid-cols-4 gap-2 text-center">
+              <div className="p-2 bg-slate-50/90 rounded-lg border border-slate-100">
+                <div className="text-[9px] text-slate-400 uppercase">HR</div>
+                <div className="font-bold text-slate-900 text-xs mt-0.5">
+                  {bpm} <span className="text-[8px] text-slate-400 font-normal">bpm</span>
+                </div>
+              </div>
+              <div className="p-2 bg-slate-50/90 rounded-lg border border-slate-100">
+                <div className="text-[9px] text-slate-400 uppercase">SpO₂</div>
+                <div className="font-bold text-slate-900 text-xs mt-0.5">
+                  98 <span className="text-[8px] text-slate-400 font-normal">%</span>
+                </div>
+              </div>
+              <div className="p-2 bg-slate-50/90 rounded-lg border border-slate-100">
+                <div className="text-[9px] text-slate-400 uppercase">BP</div>
+                <div className="font-bold text-slate-900 text-xs mt-0.5">
+                  120/80
+                </div>
+              </div>
+              <div className="p-2 bg-slate-50/90 rounded-lg border border-slate-100">
+                <div className="text-[9px] text-slate-400 uppercase">TEMP</div>
+                <div className="font-bold text-slate-900 text-xs mt-0.5">
+                  36.6 <span className="text-[8px] text-slate-400 font-normal">°C</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* 4 Feature Badges Row */}

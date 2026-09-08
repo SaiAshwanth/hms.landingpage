@@ -14,9 +14,9 @@ const VISIT_STEPS: VisitStep[] = [
 export const VisitReimaginedSection: React.FC = () => {
   return (
     <section className="py-32 bg-[#FAFAF7] text-[#0B0D0C] relative z-10 border-t border-[#A7AAA4]/20">
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <Reveal>
           <div className="mb-20">
@@ -34,7 +34,7 @@ export const VisitReimaginedSection: React.FC = () => {
 
         {/* Continuous Journey Timeline */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 relative">
-          
+
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[#0B0D0C]/15 -translate-y-6 z-0" />
 
           {VISIT_STEPS.map((step, idx) => (

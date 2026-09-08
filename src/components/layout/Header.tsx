@@ -9,15 +9,14 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
           ? 'bg-white/95 backdrop-blur-md py-3.5 border-b border-slate-200/80 shadow-sm text-slate-900'
           : 'bg-transparent py-5 text-slate-900'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          
+
           {/* Logo - Minimal Flagship matching reference */}
           <a href="#hero" className="flex items-center gap-3 group">
             {/* Elegant Chevron "A" Icon */}
@@ -49,7 +48,7 @@ export const Header: React.FC = () => {
 
           {/* Right Action Controls matching reference */}
           <div className="flex items-center gap-4">
-            
+
             {/* Search Icon */}
             <button
               onClick={toggleCommandPalette}

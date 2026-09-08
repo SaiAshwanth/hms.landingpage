@@ -77,7 +77,7 @@ export const AppointmentWizard: React.FC<AppointmentWizardProps> = ({ isModal = 
 
   return (
     <div className="w-full">
-      
+
       {isSubmitted ? (
         <div className="p-8 sm:p-12 text-center bg-[#0B0D0C] text-[#FAFAF7] space-y-6 shadow-2xl border border-white/10">
           <div className="w-16 h-16 rounded-full bg-[#8CC8A3]/20 border border-[#8CC8A3]/50 flex items-center justify-center text-[#8CC8A3] mx-auto animate-bounce">
@@ -130,7 +130,7 @@ export const AppointmentWizard: React.FC<AppointmentWizardProps> = ({ isModal = 
         </div>
       ) : (
         <div className={`p-6 sm:p-10 border border-[#0B0D0C]/15 bg-[#FAFAF7] text-[#0B0D0C] ${isModal ? 'bg-[#FAFAF7]' : ''}`}>
-          
+
           {/* Wizard Header & Progress Bar */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-4">
@@ -154,18 +154,17 @@ export const AppointmentWizard: React.FC<AppointmentWizardProps> = ({ isModal = 
               {[1, 2, 3, 4, 5].map((step) => (
                 <div
                   key={step}
-                  className={`h-1.5 transition-all duration-500 ${
-                    step <= currentStep
+                  className={`h-1.5 transition-all duration-500 ${step <= currentStep
                       ? 'bg-[#0B0D0C]'
                       : 'bg-[#0B0D0C]/15'
-                  }`}
+                    }`}
                 />
               ))}
             </div>
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            
+
             {/* STEP 1: Select Speciality */}
             {currentStep === 1 && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-80 overflow-y-auto pr-1">
@@ -180,11 +179,10 @@ export const AppointmentWizard: React.FC<AppointmentWizardProps> = ({ isModal = 
                         const firstDoc = DOCTORS_DATA.find((d) => d.specialityId === dept.id);
                         if (firstDoc) setValue('doctorId', firstDoc.id);
                       }}
-                      className={`p-4 text-left border transition-all cursor-pointer flex items-center justify-between ${
-                        isSelected
+                      className={`p-4 text-left border transition-all cursor-pointer flex items-center justify-between ${isSelected
                           ? 'bg-[#0B0D0C] text-[#FAFAF7] border-[#0B0D0C]'
                           : 'bg-white border-[#0B0D0C]/15 text-[#0B0D0C] hover:border-[#0B0D0C]'
-                      }`}
+                        }`}
                     >
                       <div>
                         <div className="text-sm font-bold uppercase">{dept.name}</div>
@@ -212,11 +210,10 @@ export const AppointmentWizard: React.FC<AppointmentWizardProps> = ({ isModal = 
                         type="button"
                         key={doc.id}
                         onClick={() => setValue('doctorId', doc.id)}
-                        className={`p-3.5 text-left border transition-all cursor-pointer flex items-center gap-3 ${
-                          isSelected
+                        className={`p-3.5 text-left border transition-all cursor-pointer flex items-center gap-3 ${isSelected
                             ? 'bg-[#0B0D0C] text-[#FAFAF7] border-[#0B0D0C]'
                             : 'bg-white border-[#0B0D0C]/15 text-[#0B0D0C] hover:border-[#0B0D0C]'
-                        }`}
+                          }`}
                       >
                         <img
                           src={doc.image}
@@ -263,11 +260,10 @@ export const AppointmentWizard: React.FC<AppointmentWizardProps> = ({ isModal = 
                         type="button"
                         key={slot}
                         onClick={() => setValue('timeSlot', slot)}
-                        className={`p-3 text-center border font-mono text-sm font-bold transition-all cursor-pointer ${
-                          isSelected
+                        className={`p-3 text-center border font-mono text-sm font-bold transition-all cursor-pointer ${isSelected
                             ? 'bg-[#0B0D0C] text-[#FAFAF7] border-[#0B0D0C]'
                             : 'bg-white border-[#0B0D0C]/15 text-[#0B0D0C] hover:border-[#0B0D0C]'
-                        }`}
+                          }`}
                       >
                         {slot}
                       </button>

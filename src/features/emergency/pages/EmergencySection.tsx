@@ -7,7 +7,7 @@ export const EmergencySection: React.FC = () => {
     <section id="emergency" className="py-24 bg-gradient-to-r from-rose-50 via-red-50 to-orange-50 text-slate-900 relative z-20 border-y-2 border-rose-400 overflow-hidden shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl space-y-8">
-          
+
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 bg-rose-600 text-white rounded-full text-xs font-mono font-bold tracking-widest uppercase shadow-md shadow-rose-600/30">
             <ShieldAlert className="w-4 h-4 text-white animate-bounce" />
             <span>24 / 7 LEVEL 1 TRAUMA & CARDIAC DISPATCH</span>

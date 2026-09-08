@@ -27,7 +27,10 @@ const ORGAN_NODES: OrganPoint[] = [
 export const HumanAtlas3D: React.FC<HumanAtlas3DProps> = ({ selectedOrganId, onSelectOrgan }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const selectedRef = useRef(selectedOrganId);
-  selectedRef.current = selectedOrganId;
+
+  useEffect(() => {
+    selectedRef.current = selectedOrganId;
+  }, [selectedOrganId]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -125,7 +128,7 @@ export const HumanAtlas3D: React.FC<HumanAtlas3DProps> = ({ selectedOrganId, onS
     const nodeMeshes: { id: string; mesh: THREE.Mesh; ring: THREE.Mesh }[] = [];
 
     ORGAN_NODES.forEach((organ) => {
-      const isSelected = organ.id === selectedOrganId;
+      const isSelected = organ.id === selectedRef.current;
 
       const nodeGeo = new THREE.SphereGeometry(0.09, 24, 24);
       const nodeMat = new THREE.MeshStandardMaterial({
@@ -176,6 +179,24 @@ export const HumanAtlas3D: React.FC<HumanAtlas3DProps> = ({ selectedOrganId, onS
 
     const domElem = renderer.domElement;
     domElem.addEventListener('click', handleClick);
+
+    const handleTouch = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        const rect = renderer.domElement.getBoundingClientRect();
+        mouse.x = ((touch.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((touch.clientY - rect.top) / rect.height) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(nodeMeshes.map((n) => n.mesh));
+
+        if (intersects.length > 0) {
+          const hit = nodeMeshes.find((n) => n.mesh === intersects[0].object);
+          if (hit) onSelectOrgan(hit.id);
+        }
+      }
+    };
+    domElem.addEventListener('touchstart', handleTouch, { passive: true });
 
     // --- D. Smooth Animation Loop ---
     let animId: number;
@@ -230,6 +251,7 @@ export const HumanAtlas3D: React.FC<HumanAtlas3DProps> = ({ selectedOrganId, onS
     return () => {
       cancelAnimationFrame(animId);
       domElem.removeEventListener('click', handleClick);
+      domElem.removeEventListener('touchstart', handleTouch);
       window.removeEventListener('resize', handleResize);
       if (container && domElem) container.removeChild(domElem);
 
@@ -238,7 +260,7 @@ export const HumanAtlas3D: React.FC<HumanAtlas3DProps> = ({ selectedOrganId, onS
       personTexture.dispose();
       renderer.dispose();
     };
-  }, [onSelectOrgan, selectedOrganId]);
+  }, [onSelectOrgan]);
 
-  return <div ref={containerRef} className="w-full h-[480px] relative cursor-pointer" />;
+  return <div ref={containerRef} className="w-full h-[380px] sm:h-[480px] relative cursor-pointer" />;
 };

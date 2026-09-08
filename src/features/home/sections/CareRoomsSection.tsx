@@ -107,7 +107,7 @@ export const CareRoomsSection: React.FC = () => {
               viewport={{ once: true, margin: '-5% 0px' }}
               transition={{ duration: 0.6, delay: idx * 0.1, ease: 'easeOut' }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="min-w-[320px] sm:min-w-[420px] lg:min-w-[480px] bg-graphite text-clinical p-8 flex flex-col justify-between h-[520px] snap-start relative overflow-hidden shadow-2xl group flex-shrink-0 rounded-lg border border-white/10"
+              className="min-w-[82vw] sm:min-w-[420px] lg:min-w-[480px] bg-graphite text-clinical p-6 sm:p-8 flex flex-col justify-between h-[480px] sm:h-[520px] snap-start relative overflow-hidden shadow-2xl group flex-shrink-0 rounded-lg border border-white/10"
             >
               <img
                 src={room.image}

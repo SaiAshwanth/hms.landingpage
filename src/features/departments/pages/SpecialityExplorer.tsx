@@ -45,34 +45,36 @@ export const SpecialityExplorerSection: React.FC = () => {
         {/* Anatomical Museum 3D Installation Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Body Systems Selector */}
-          <div className="lg:col-span-4 space-y-2 border-b lg:border-b-0 lg:border-r border-teal-500/20 pb-8 lg:pb-0 lg:pr-8">
-            <div className="text-xs font-mono uppercase tracking-wider text-teal-900 mb-4 font-bold">
-              Select Body System
+          <div className="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-teal-500/20 pb-6 lg:pb-0 lg:pr-8">
+            <div className="text-xs font-mono uppercase tracking-wider text-teal-900 mb-3 font-bold flex items-center justify-between">
+              <span>Select Body System</span>
+              <span className="lg:hidden text-[10px] text-teal-600 font-normal">Swipe to switch</span>
             </div>
-            {ANATOMY_REGIONS.map((item) => {
-              const isSelected = item.id === selectedRegionId;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setSelectedRegionId(item.id)}
-                  onMouseEnter={() => setCursorMode('view')}
-                  onMouseLeave={() => setCursorMode('default')}
-                  className={`w-full text-left p-4 transition-all duration-300 cursor-pointer flex items-center justify-between rounded-lg ${
-                    isSelected
-                      ? 'bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold pl-6 shadow-md shadow-teal-500/20'
+            <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 scrollbar-none snap-x snap-mandatory">
+              {ANATOMY_REGIONS.map((item) => {
+                const isSelected = item.id === selectedRegionId;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => setSelectedRegionId(item.id)}
+                    onMouseEnter={() => setCursorMode('view')}
+                    onMouseLeave={() => setCursorMode('default')}
+                    className={`flex-shrink-0 min-w-[160px] lg:w-full text-left p-3.5 lg:p-4 transition-all duration-300 cursor-pointer flex items-center justify-between rounded-lg snap-start ${isSelected
+                      ? 'bg-gradient-to-r from-teal-600 to-emerald-600 text-white font-bold pl-5 lg:pl-6 shadow-md shadow-teal-500/20'
                       : 'bg-white/80 text-slate-700 hover:bg-teal-50 hover:text-teal-900 border border-slate-200/80'
-                  }`}
-                >
-                  <div>
-                    <div className="text-sm font-bold uppercase tracking-wider">{item.name}</div>
-                    <div className={`text-[10px] font-mono mt-0.5 ${isSelected ? 'text-teal-100' : 'text-teal-700 font-semibold'}`}>
-                      {item.region}
+                      }`}
+                  >
+                    <div>
+                      <div className="text-xs lg:text-sm font-bold uppercase tracking-wider">{item.name}</div>
+                      <div className={`text-[9px] lg:text-[10px] font-mono mt-0.5 ${isSelected ? 'text-teal-100' : 'text-teal-700 font-semibold'}`}>
+                        {item.region}
+                      </div>
                     </div>
-                  </div>
-                  {isSelected && <span className="w-2.5 h-2.5 rounded-full bg-rose-400 animate-ping" />}
-                </button>
-              );
-            })}
+                    {isSelected && <span className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-rose-400 animate-ping shrink-0 ml-2" />}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Center 3D Interactive Human Atlas WebGL Canvas */}

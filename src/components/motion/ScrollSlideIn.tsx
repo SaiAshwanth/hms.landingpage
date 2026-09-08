@@ -20,18 +20,21 @@ export const ScrollSlideIn: React.FC<ScrollSlideInProps> = ({
   className = '',
   once = false,
 }) => {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const effectiveDistance = isMobile ? Math.min(distance, 32) : distance;
+
   const getInitialPosition = () => {
     switch (from) {
       case 'right':
-        return { x: distance, y: 0 };
+        return { x: effectiveDistance, y: 0 };
       case 'left':
-        return { x: -distance, y: 0 };
+        return { x: -effectiveDistance, y: 0 };
       case 'bottom':
-        return { x: 0, y: distance };
+        return { x: 0, y: effectiveDistance };
       case 'top':
-        return { x: 0, y: -distance };
+        return { x: 0, y: -effectiveDistance };
       default:
-        return { x: distance, y: 0 };
+        return { x: effectiveDistance, y: 0 };
     }
   };
 
