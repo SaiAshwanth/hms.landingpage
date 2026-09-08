@@ -10,8 +10,8 @@ export const Header: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'bg-white/95 backdrop-blur-md py-3.5 border-b border-slate-200/80 shadow-sm text-slate-900'
-          : 'bg-transparent py-5 text-slate-900'
+        ? 'bg-white/95 backdrop-blur-md py-3.5 border-b border-slate-200/80 shadow-sm text-slate-900'
+        : 'bg-transparent py-5 text-slate-900'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
                 AURELIA NOVA
               </div>
               <div className="text-[9px] tracking-widest text-slate-500 font-mono uppercase mt-0.5">
-                INSTITUTE OF ADVANCED MULTISPECIALITY CARE
+                ADVANCED MULTISPECIALITY CARE
               </div>
             </div>
           </a>
